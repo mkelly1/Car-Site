@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="base::navbar"></div>
+<br/>
+<form action="#" th:action="@{/processCar}" th:object="${car}" method="post">
+    <input type="hidden" th:field="*{carId}" />
+
+    Make: <input type="text" th:field="*{make}"><br />
+    <span th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></span><br />
+
+    Model: <input type="text" th:field="*{model}"><br />
+    <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span><br />
+
+    Price: <input type="text" th:field="*{price}"><br />
+    <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span><br />
+
+    Category: <input type="text" th:field="*{category}"><br />
+    <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span><br />
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
