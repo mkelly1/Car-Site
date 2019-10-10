@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Car {
@@ -11,7 +8,9 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long carId;
 
+    @ManyToOne
     private Category category;
+
     private String price;
     private String make;
     private String model;

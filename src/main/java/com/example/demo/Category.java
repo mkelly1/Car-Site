@@ -1,9 +1,7 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Category {
@@ -18,6 +16,9 @@ public class Category {
     public long getCategoryId() {
         return categoryId;
     }
+
+    @OneToMany
+    public List<Car> cars;
 
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
