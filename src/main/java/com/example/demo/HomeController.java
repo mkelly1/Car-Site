@@ -24,8 +24,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String getIndex(Model model){
-        model.addAttribute("car", carRepository.findAll());
-        model.addAttribute("category", categoryRepository.findAll());
+        model.addAttribute("cars", carRepository.findAll());
 
         return "index";
     }
@@ -49,6 +48,7 @@ public class HomeController {
     @RequestMapping("/updateCar/{id}")
     public String updateCar(Model model, @PathVariable("id")long id){
         model.addAttribute("car", carRepository.findById(id).get());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "carform";
     }
 
@@ -58,10 +58,16 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping("/detail/{id}")
+    @RequestMapping("/showCar/{id}")
     public String showCar(@PathVariable("id") long id, Model model){
-        model.addAttribute("department", carRepository.findById(id).get());
+        model.addAttribute("car", carRepository.findById(id).get());
         return "showcar";
+    }
+
+    @RequestMapping("/carlist")
+    public String carlist(Model model) {
+        model.addAttribute("cars", carRepository.findAll());
+        return "carlist";
     }
 
 
@@ -93,10 +99,16 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping("/detail/{id}")
+    @RequestMapping("/showCategory/{id}")
     public String showCategory(@PathVariable("id") long id, Model model){
-        model.addAttribute("department", categoryRepository.findById(id).get());
+        model.addAttribute("category", categoryRepository.findById(id).get());
         return "showcategory";
+    }
+
+    @RequestMapping("/categorylist")
+    public String categorylist(Model model) {
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "categorylist";
     }
 
 }

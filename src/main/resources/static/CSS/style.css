@@ -1,0 +1,39 @@
+
+body, html {
+    height: 100%;
+    color: ivory;
+}
+.bg {
+    /* The image used */
+    background-image: url("https://res.cloudinary.com/dhmt9zect/image/upload/v1570806818/cars_bcupus.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 50%;
+}
+table{
+    width: 80%;
+}
+th, td{
+    height: 50px;
+}
+#box{
+    background-color: lightslategrey;
+}
+text{
+    color: darkslategrey;
+}
+a{
+    color: darkslategrey;
+}
+input{
+    border-radius: 10px;
+}
+#jumbo{
+    background-color: gray;
+}

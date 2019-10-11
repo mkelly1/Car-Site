@@ -2,13 +2,34 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+
     <title>Title</title>
-    <style th:replace="base::styling"></style>
 </head>
 <body>
+<div class="bg">
+    <div class="container">
 <div th:insert="base::navbar"></div>
-<br/>
+<br/><br/><br/>
+<div class="container" id="box">
+<table>
+    <tr>
+        <th><h3>Vehicle Types<h3></h3></th>
 
+    </tr>
+
+    <tr th:each="category : ${categories}">
+        <h4><td th:text="${category.cartype}"></td></h4>
+
+        <td>
+            <a th:href="@{updateCategory/{id}(id=${category.categoryId})}">Update</a>
+            <a th:href="@{showCategory/{id}(id=${category.categoryId})}">Details</a>
+            <a th:href="@{deleteCategory/{id}(id=${category.categoryId})}">Delete</a>
+        </td>
+    </tr>
+</table>
 
 </body>
 </html>

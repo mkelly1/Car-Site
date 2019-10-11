@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Base</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style th:fragment="styling">
+    <style>
         body, html {
             height: 100%;
             color: ivory;
         }
         .bg {
             /* The image used */
-            background-image: url("");
+            background-image: url("https://res.cloudinary.com/dhmt9zect/image/upload/v1570806818/cars_bcupus.jpg");
 
             /* Full height */
             height: 100%;
@@ -33,10 +33,10 @@
             background-color: dimgray;
         }
         text{
-            color: ivory;
+            color: darkslategrey;
         }
         a{
-            color: gold;
+            color: darkgrey;
         }
     </style>
 </head>
@@ -44,7 +44,7 @@
 <div class="bg">
     <div class="container">
         <div th:fragment="navbar">
-            <nav class="navbar navbar-dark bg-dark navbar-expand">
+            <nav class="navbar navbar-expand bg-light">
                 <ul class="navbar-nav mr-auto">
                     <a class="navbar-brand">Cars!</a>
                     <li class="nav-item active">
@@ -53,17 +53,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/addCar">Add Car</a>
                     </li>
-                    <li></li>
                     <li class="nav-item">
                         <a class="nav-link" href="/addCategory/">Add Category</a>
                     </li>
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <a class="nav-link" href="/delete/">Delete</a>-->
-                    <!--                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carlist">Inventory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categorylist">Vehicle Types</a>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="#" th:action="@{/search}" method="post">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
-                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </nav></div>
         <br/>

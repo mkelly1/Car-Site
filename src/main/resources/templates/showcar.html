@@ -2,10 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+
     <title>Title</title>
 </head>
 <body>
+<div class="bg">
+    <br/><br/><br/>
+    <div class="container">
 <div th:insert="base::navbar"></div>
-
+<br/>
+<div class="container" id="box">
+Make:     <span th:text="${car.make}"></span><br />
+Model: <span th:text="${car.model}"></span><br />
+Price:    <span th:text="${car.price}"></span><br />
+Category: <span th:text="${car.category.cartype}"></span><br />
+</div>
+    </div>
+</div>
 </body>
 </html>

@@ -2,28 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+
+
     <title>Title</title>
 </head>
 <body>
+<div class="bg">
+    <div class="container">
 <div th:insert="base::navbar"></div>
 <br/>
+        <br/>
+        <div class="container" id="box">
 <form action="#" th:action="@{/processCar}" th:object="${car}" method="post">
-    <input type="hidden" th:field="*{carId}" />
+    <input class="form-control" type="hidden" th:field="*{carId}" />
 
-    Make: <input type="text" th:field="*{make}"><br />
+    Make: <input class="form-control" type="text" th:field="*{make}"><br />
     <span th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></span><br />
 
-    Model: <input type="text" th:field="*{model}"><br />
+    Model: <input class="form-control" type="text" th:field="*{model}"><br />
     <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span><br />
 
-    Price: <input type="text" th:field="*{price}"><br />
+    Price: <input class="form-control" type="text" th:field="*{price}"><br />
     <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span><br />
 
-    Category: <input type="text" th:field="*{category}"><br />
-    <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span><br />
-
+    <select name="category" th:field="*{category}">
+        <option th:each="category : ${categories}"
+                th:value="${category.categoryId}"
+                th:text="${category.cartype}"></option>
+    </select>
+<br/><br/>
     <input type="submit" value="Submit">
+    <br/>
 </form>
-
+        </div>
+    </div>
+</div>
 </body>
 </html>

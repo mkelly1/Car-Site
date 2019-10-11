@@ -2,10 +2,42 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="/css/style.css" rel="stylesheet">
+
 </head>
 <body>
+<div class="bg">
+    <div class="container">
 <div th:insert="base::navbar"></div>
+        <br/><br/><br/>
+        <div class="container" id="box">
+<br/>
+<table>
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Type</th>
+    </tr>
 
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.make}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.price}"></td>
+        <td th:text="${car.category.cartype}"></td>
+        <td>
+            <a th:href="@{updateCar/{id}(id=${car.carId})}">Update</a>
+            <a th:href="@{showCar/{id}(id=${car.carId})}">Details</a>
+            <a th:href="@{deleteCar/{id}(id=${car.carId})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>
