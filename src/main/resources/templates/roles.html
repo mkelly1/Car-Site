@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Roles</title>
+</head>
+<body>
+<div class="bg">
+    <div class="container">
+        <div th:insert="base::navbar"></div>
+        <br/><br/><br/>
+        <div class="container" id="box">
+            <br/>
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E mail</th>
+                    <th>Role</th>
+                </tr>
+
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.first_name}"></td>
+                    <td th:text="${user.last_name}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.role.role}"></td>
+                    <td>
+                        <a th:href="@{updateCar/{id}(id=${user.userId})}">Update</a>
+                        <a th:href="@{showCar/{id}(id=${user.userId})}">Details</a>
+                        <a th:href="@{deleteCar/{id}(id=${user.userId})}">Delete</a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -36,11 +36,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/h2-console/**", "/register", "/css/**").permitAll()
 
-                .antMatchers("/admin", "/carform", "/categoryform", "/base")
-                .access("hasAuthority('ADMIN')")
-
                 .antMatchers("/categorylist", "/carlist", "/showcar", "/index")
-                .access("hasAuthority('USER')")
+                .access("hasAnyAuthority('ADMIN', 'USER')")
+
+                .antMatchers("/admin", "/addCar", "/addCategory", "/base")
+                .access("hasAuthority('ADMIN')")
 
                 .anyRequest().authenticated()
                 .and()
@@ -52,8 +52,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login").permitAll()
                 .and()
-
                 .httpBasic();
+
         http.csrf().disable();
         http.headers().frameOptions().disable();
 

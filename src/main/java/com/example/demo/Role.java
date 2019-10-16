@@ -7,7 +7,7 @@ import java.util.Collection;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long roleID;
 
     @Column(unique=true)
     private String role;
@@ -21,11 +21,11 @@ public class Role {
     }
 
     public long getId() {
-        return id;
+        return roleID;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.roleID = roleID;
     }
 
     public String getRole() {

@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -30,6 +27,11 @@ public class SecurityController {
         return "login";
     }
 
+    @RequestMapping("/logout")
+    public String logout(){
+        return "/";
+    }       //return to index on logout
+
     @GetMapping("/register")
     public String showRegistrationPage(Model model){
         model.addAttribute("user", new User());
@@ -38,16 +40,25 @@ public class SecurityController {
 
     @PostMapping("/register")
     public String processRegistrationPage(@Valid @ModelAttribute("user")
-                                                  User user, BindingResult result,
+                                                  User user, @RequestParam String role, BindingResult result,
                                           Model model){
         model.addAttribute("user", user);
         if(result.hasErrors()){
             return "register";
         }
-        else{
+
+        if (role.equalsIgnoreCase("admin")){
+            userService.saveAdmin(user);
+            model.addAttribute("message", "Admin Account Created");
+            return "index";
+        }
+        else if (role.equalsIgnoreCase("user")){
             userService.saveUser(user);
             model.addAttribute("message", "User Account Created");
+            return "index";
         }
-        return "index";
+        else{
+            return "index";
+        }
     }
 }
