@@ -51,10 +51,10 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
                         <a class="nav-link" href="/addCar">Add Car</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
                         <a class="nav-link" href="/addCategory/">Add Category</a>
                     </li>
                     <li class="nav-item">
