@@ -19,6 +19,9 @@ public class HomeController{
     @Autowired
     CategoryRepository categoryRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
 
 
     @RequestMapping("/")
@@ -108,6 +111,24 @@ public class HomeController{
     public String categorylist(Model model) {
         model.addAttribute("categories", categoryRepository.findAll());
         return "categorylist";
+    }
+
+    @RequestMapping("/userlist")
+    public String getUsers(Model model){
+        model.addAttribute("users", userRepository.findAll());
+        return "roles";
+    }
+
+    @RequestMapping("/updateUser/{id}")
+    public String getUser(@PathVariable("id") Long id, Model model){
+        model.addAttribute("user", userRepository.findById(id).get());
+        return "userform";
+    }
+
+    @RequestMapping("/deleteUser/{id}")
+    public String delUser(@PathVariable("id") Long id){
+        userRepository.deleteById(id);
+        return "index";
     }
 
 }

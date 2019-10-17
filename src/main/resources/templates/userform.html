@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet">
-    <title>Registration</title>
+    <title>Update User</title>
 </head>
+<body>
 <body><div class="bg">
     <div class="container">
         <div th:insert="base::navbar"></div>
         <br/>
         <br/>
         <div class="container" id="box">
-<h4>New User Registration</h4>
+<h4>User Update Form</h4>
 <form autocomplete="off" action="#" th:action="@{/register}" th:object="${user}" method="post">
     <input class="form-control" type="hidden" th:field="*{id}" />
     First Name <mark><strong>
     <span th:if="${#fields.hasErrors('first_name')}"
-        th:errors="*{first_name}">First Name Error</span></strong></mark>
+          th:errors="*{first_name}">First Name Error</span></strong></mark>
     <input type="text" id="firstName" placeholder="First Name"
            th:field="*{first_name}" /><br/>
 
@@ -47,8 +47,8 @@
     <input type="text" id="password" placeholder="Password"
            th:field="*{password}"/><br/>
 
-    Admin <input sec:authorize="hasAuthority('ADMIN')" type="radio" name="role" value="admin"><br/>
-    User    <input type="radio" name="role" checked="checked" value="user"><br/>
+    Admin <input type="radio" name="role" value="admin"><br/>
+    User  <input type="radio" name="role" value="user"><br/>
 
 
 

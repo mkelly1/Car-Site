@@ -14,8 +14,15 @@ public class Car {
     private String price;
     private String make;
     private String model;
+    private String caryear;
 
     public Car(){}
+
+    public Car(String price, String make, String model, String year){
+        this.price = price;
+        this.model = model;
+        this.caryear = year;
+    }
 
     public long getCarId() { return carId; }
 
@@ -51,5 +58,13 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getCaryear() {
+        return caryear;
+    }
+
+    public void setCaryear(String caryear) {
+        this.caryear = caryear;
     }
 }

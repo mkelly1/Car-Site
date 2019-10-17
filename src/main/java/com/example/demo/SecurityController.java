@@ -20,8 +20,6 @@ public class SecurityController {
     @Autowired
     RoleRepository roleRepository;
 
-
-
     @RequestMapping("/login")
     public String login(){
         return "login";

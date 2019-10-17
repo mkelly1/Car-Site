@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Inventory</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/css/style.css" rel="stylesheet">
 
@@ -20,6 +21,7 @@
         <th>Make</th>
         <th>Model</th>
         <th>Price</th>
+        <th>Year</th>
         <th>Type</th>
     </tr>
 
@@ -27,8 +29,9 @@
         <td th:text="${car.make}"></td>
         <td th:text="${car.model}"></td>
         <td th:text="${car.price}"></td>
+        <td th:text="${car.caryear}"></td>
         <td th:text="${car.category.cartype}"></td>
-        <td>
+        <td sec:authorize="hasAuthority('ADMIN')">
             <a th:href="@{updateCar/{id}(id=${car.carId})}">Update</a>
             <a th:href="@{showCar/{id}(id=${car.carId})}">Details</a>
             <a th:href="@{deleteCar/{id}(id=${car.carId})}">Delete</a>

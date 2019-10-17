@@ -13,6 +13,10 @@ public class Category {
 
     public Category(){}
 
+    public Category(String cartype){
+        this.cartype = cartype;
+    }
+
     public long getCategoryId() {
         return categoryId;
     }
