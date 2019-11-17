@@ -5,30 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet">
-
-
     <title>Title</title>
 </head>
 <body>
 <div class="bg">
     <div class="container">
 <div th:insert="base::navbar"></div>
-<br/>
-        <br/>
+<br/><br/><br/>
         <div class="container" id="box">
 <form action="#" th:action="@{/processCar}" th:object="${car}" method="post">
     <input class="form-control" type="hidden" th:field="*{carId}" />
 
-    Make: <input class="form-control" type="text" th:field="*{make}"><br />
+    Make: <input class="form-control" type="text" th:field="*{make}">
     <span th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></span><br />
 
-    Model: <input class="form-control" type="text" th:field="*{model}"><br />
+    Model: <input class="form-control" type="text" th:field="*{model}">
     <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span><br />
 
-    Year: <input class="form-control" type="text" th:field="*{year}"><br />
-    <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></span><br />
+    Year: <input class="form-control" type="text" th:field="*{caryear}">
+    <span th:if="${#fields.hasErrors('caryear')}" th:errors="*{caryear}"></span><br />
 
-    Price: <input class="form-control" type="text" th:field="*{price}"><br />
+    Price: <input class="form-control" type="text" th:field="*{price}">
     <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span><br />
 
     <select name="category" th:field="*{category}">

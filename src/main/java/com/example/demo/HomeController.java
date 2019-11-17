@@ -22,12 +22,9 @@ public class HomeController{
     @Autowired
     UserRepository userRepository;
 
-
-
     @RequestMapping("/")
     public String getIndex(Model model){
         model.addAttribute("cars", carRepository.findAll());
-
         return "index";
     }
 

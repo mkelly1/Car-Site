@@ -58,11 +58,15 @@ public class DataLoader implements CommandLineRunner {
             car.setCategory(sedanCategory);
             carRepository.save(car);
 
-            car = new Car("$40,999", "Ford", "Mustang", "2018");
+            car = new Car("$32,999", "Ford", "Mustang", "2018");
             car.setCategory(sportsCategory);
             carRepository.save(car);
 
             car = new Car("$28,999", "Honda", "Civic", "2018");
+            car.setCategory(sedanCategory);
+            carRepository.save(car);
+
+            car = new Car("$38,999", "Tesla", "Model 3", "2020");
             car.setCategory(sedanCategory);
             carRepository.save(car);
         }

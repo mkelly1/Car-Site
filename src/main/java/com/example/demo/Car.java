@@ -20,6 +20,7 @@ public class Car {
 
     public Car(String price, String make, String model, String year){
         this.price = price;
+        this.make = make;
         this.model = model;
         this.caryear = year;
     }

@@ -10,14 +10,17 @@ body, html {
     /* Full height */
     height: 100%;
 
-    /* Center and scale the image nicely */
+    /* Center and scale the image */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 50%;
+    background-attachment: fixed;
+    overflow-x: scroll
+
 }
 table{
-    width: 80%;
+    width: 90%;
+    horiz-align: center;
 }
 th, td{
     height: 50px;
@@ -35,5 +38,5 @@ input{
     border-radius: 10px;
 }
 #jumbo{
-    background-color: gray;
+    background-color: lightslategrey;
 }
